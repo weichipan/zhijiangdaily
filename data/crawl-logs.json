@@ -1,0 +1,23 @@
+[
+  {
+    "id": "crawl-1777072770450",
+    "type": "crawl",
+    "status": "success",
+    "createdAt": "2026-04-24T23:19:30.450Z",
+    "message": "已抓取 4 条原料"
+  },
+  {
+    "id": "crawl-1777072730830",
+    "type": "crawl",
+    "status": "success",
+    "createdAt": "2026-04-24T23:18:50.830Z",
+    "message": "已抓取 4 条原料"
+  },
+  {
+    "id": "log-seed",
+    "type": "seed",
+    "status": "success",
+    "createdAt": "2026-04-24T23:18:50.540Z",
+    "message": "项目首次初始化完成，已注入默认日报与数据源配置。"
+  }
+]

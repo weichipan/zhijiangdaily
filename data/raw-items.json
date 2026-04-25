@@ -1,0 +1,533 @@
+[
+  {
+    "sourceId": "bella-live",
+    "sourceType": "member_live",
+    "sourceUid": "672353429",
+    "label": "贝拉直播间",
+    "memberName": "贝拉kira",
+    "url": "https://live.bilibili.com/22632424",
+    "cover": "https://i0.hdslb.com/bfs/live/new_room_cover/11a9c6e355c7af3b6b62e6a72ef4943ad545c827.jpg",
+    "publishTime": "2026-04-24T23:19:30.431Z",
+    "title": "【突击】决战终末地1.2！",
+    "textContent": "贝拉kira 当前直播状态为 2，分区 明日方舟：终末地",
+    "metrics": {
+      "followerNum": 702729,
+      "online": 0,
+      "liveStatus": 2,
+      "areaName": "明日方舟：终末地",
+      "hotWords": [
+        "2333333",
+        "喂，妖妖零吗",
+        "红红火火恍恍惚惚",
+        "FFFFFFFFFF",
+        "Yooooooo",
+        "啪啪啪啪啪",
+        "666666666",
+        "老司机带带我",
+        "你为什么这么熟练啊",
+        "gg",
+        "prprpr",
+        "向大佬低头",
+        "请大家注意弹幕礼仪哦！",
+        "还有这种操作！",
+        "囍",
+        "打call",
+        "你气不气？",
+        "队友呢？"
+      ],
+      "roomId": "22632424"
+    },
+    "rawPayload": {
+      "master": {
+        "info": {
+          "uid": 672353429,
+          "uname": "贝拉kira",
+          "face": "https://i2.hdslb.com/bfs/face/0210084eec71d49f1db2a1e528fa42ac80b2fc9c.jpg",
+          "official_verify": {
+            "type": 0,
+            "desc": "bilibili个人认证:虚拟偶像团体A-SOUL 所属艺人"
+          },
+          "gender": 0
+        },
+        "exp": {
+          "master_level": {
+            "level": 40,
+            "color": 16746162,
+            "current": [
+              0,
+              147013810
+            ],
+            "next": [
+              0,
+              147013810
+            ]
+          }
+        },
+        "follower_num": 702729,
+        "room_id": 22632424,
+        "medal_name": "贝极星",
+        "glory_count": 8,
+        "pendant": "https://i0.hdslb.com/bfs/vc/071eb10548fe9bc482ff69331983d94192ce9507.png",
+        "link_group_num": 0,
+        "room_news": {
+          "content": "每周我都会跟大家见面的，大家可以多多关注我的动态哟～～～",
+          "ctime": "2020-12-31 22:36:43",
+          "ctime_text": "2020-12-31"
+        }
+      },
+      "room": {
+        "uid": 672353429,
+        "room_id": 22632424,
+        "short_id": 0,
+        "attention": 702729,
+        "online": 0,
+        "is_portrait": false,
+        "description": "A-SOUL队长、舞蹈担当贝拉，期望能够获得大家的喜欢。",
+        "live_status": 2,
+        "area_id": 848,
+        "parent_area_id": 3,
+        "parent_area_name": "手游",
+        "old_area_id": 12,
+        "background": "https://i0.hdslb.com/bfs/live/b1108bc618be9ecfe5551f267d25574250a25654.jpg",
+        "title": "【突击】决战终末地1.2！",
+        "user_cover": "https://i0.hdslb.com/bfs/live/new_room_cover/11a9c6e355c7af3b6b62e6a72ef4943ad545c827.jpg",
+        "keyframe": "",
+        "is_strict_room": false,
+        "live_time": "0000-00-00 00:00:00",
+        "tags": "舞蹈,二次元,虚拟偶像",
+        "is_anchor": 0,
+        "room_silent_type": "",
+        "room_silent_level": 0,
+        "room_silent_second": 0,
+        "area_name": "明日方舟：终末地",
+        "pendants": "",
+        "area_pendants": "",
+        "hot_words": [
+          "2333333",
+          "喂，妖妖零吗",
+          "红红火火恍恍惚惚",
+          "FFFFFFFFFF",
+          "Yooooooo",
+          "啪啪啪啪啪",
+          "666666666",
+          "老司机带带我",
+          "你为什么这么熟练啊",
+          "gg",
+          "prprpr",
+          "向大佬低头",
+          "请大家注意弹幕礼仪哦！",
+          "还有这种操作！",
+          "囍",
+          "打call",
+          "你气不气？",
+          "队友呢？"
+        ],
+        "hot_words_status": 0,
+        "verify": "",
+        "new_pendants": {
+          "frame": {
+            "name": "百人舰队主播头像",
+            "value": "https://i0.hdslb.com/bfs/vc/071eb10548fe9bc482ff69331983d94192ce9507.png",
+            "position": 0,
+            "desc": "",
+            "area": 0,
+            "area_old": 0,
+            "bg_color": "",
+            "bg_pic": "",
+            "use_old_area": false
+          },
+          "badge": {
+            "name": "v_person",
+            "position": 3,
+            "value": "",
+            "desc": "虚拟偶像团体A-SOUL 所属艺人"
+          },
+          "mobile_frame": {
+            "name": "百人舰队主播头像",
+            "value": "https://i0.hdslb.com/bfs/vc/071eb10548fe9bc482ff69331983d94192ce9507.png",
+            "position": 0,
+            "desc": "",
+            "area": 0,
+            "area_old": 0,
+            "bg_color": "",
+            "bg_pic": "",
+            "use_old_area": false
+          },
+          "mobile_badge": null
+        },
+        "up_session": "",
+        "pk_status": 0,
+        "pk_id": 0,
+        "battle_id": 0,
+        "allow_change_area_time": 0,
+        "allow_upload_cover_time": 0,
+        "studio_info": {
+          "status": 0,
+          "master_list": []
+        }
+      }
+    },
+    "dedupeKey": "member_live:672353429:22632424",
+    "crawlDate": "2026-04-25"
+  },
+  {
+    "sourceId": "diana-live",
+    "sourceType": "member_live",
+    "sourceUid": "672328094",
+    "label": "嘉然直播间",
+    "memberName": "嘉然今天吃什么",
+    "url": "https://live.bilibili.com/22637261",
+    "cover": "https://i0.hdslb.com/bfs/live/new_room_cover/ad99030c69f06984a2f39aa68906745ed6f50c2d.jpg",
+    "publishTime": "2026-04-24T23:19:30.254Z",
+    "title": "【突击】和小然一起开荒异环！",
+    "textContent": "嘉然今天吃什么 当前直播状态为 2，分区 异环",
+    "metrics": {
+      "followerNum": 1851043,
+      "online": 0,
+      "liveStatus": 2,
+      "areaName": "异环",
+      "hotWords": [
+        "2333333",
+        "喂，妖妖零吗",
+        "红红火火恍恍惚惚",
+        "FFFFFFFFFF",
+        "Yooooooo",
+        "啪啪啪啪啪",
+        "666666666",
+        "老司机带带我",
+        "你为什么这么熟练啊",
+        "gg",
+        "prprpr",
+        "向大佬低头",
+        "请大家注意弹幕礼仪哦！",
+        "还有这种操作！",
+        "囍",
+        "打call",
+        "你气不气？",
+        "队友呢？"
+      ],
+      "roomId": "22637261"
+    },
+    "rawPayload": {
+      "master": {
+        "info": {
+          "uid": 672328094,
+          "uname": "嘉然今天吃什么",
+          "face": "https://i2.hdslb.com/bfs/face/619f378852ebac9fdf87e20418d6f99bfa750c7f.jpg",
+          "official_verify": {
+            "type": 0,
+            "desc": "bilibili个人认证:2025直播年度最强舰队奖UP主、2022百大UP主、虚拟偶像团体A-SOUL所属艺人"
+          },
+          "gender": 0
+        },
+        "exp": {
+          "master_level": {
+            "level": 40,
+            "color": 16746162,
+            "current": [
+              0,
+              147013810
+            ],
+            "next": [
+              0,
+              147013810
+            ]
+          }
+        },
+        "follower_num": 1851043,
+        "room_id": 22637261,
+        "medal_name": "嘉心糖",
+        "glory_count": 14,
+        "pendant": "https://i0.hdslb.com/bfs/vc/40862cd8245b1742bdc9f2b563fcae1335e6fa6c.png",
+        "link_group_num": 0,
+        "room_news": {
+          "content": "",
+          "ctime": "",
+          "ctime_text": ""
+        }
+      },
+      "room": {
+        "uid": 672328094,
+        "room_id": 22637261,
+        "short_id": 0,
+        "attention": 1851043,
+        "online": 0,
+        "is_portrait": false,
+        "description": "",
+        "live_status": 2,
+        "area_id": 940,
+        "parent_area_id": 3,
+        "parent_area_name": "手游",
+        "old_area_id": 12,
+        "background": "https://i0.hdslb.com/bfs/live/room_bg/8841052d25267e0dbe4803c5238fb78ce0676df5.jpg",
+        "title": "【突击】和小然一起开荒异环！",
+        "user_cover": "https://i0.hdslb.com/bfs/live/new_room_cover/ad99030c69f06984a2f39aa68906745ed6f50c2d.jpg",
+        "keyframe": "",
+        "is_strict_room": false,
+        "live_time": "0000-00-00 00:00:00",
+        "tags": "",
+        "is_anchor": 0,
+        "room_silent_type": "",
+        "room_silent_level": 0,
+        "room_silent_second": 0,
+        "area_name": "异环",
+        "pendants": "",
+        "area_pendants": "",
+        "hot_words": [
+          "2333333",
+          "喂，妖妖零吗",
+          "红红火火恍恍惚惚",
+          "FFFFFFFFFF",
+          "Yooooooo",
+          "啪啪啪啪啪",
+          "666666666",
+          "老司机带带我",
+          "你为什么这么熟练啊",
+          "gg",
+          "prprpr",
+          "向大佬低头",
+          "请大家注意弹幕礼仪哦！",
+          "还有这种操作！",
+          "囍",
+          "打call",
+          "你气不气？",
+          "队友呢？"
+        ],
+        "hot_words_status": 0,
+        "verify": "",
+        "new_pendants": {
+          "frame": {
+            "name": "千人舰队主播头像",
+            "value": "https://i0.hdslb.com/bfs/vc/40862cd8245b1742bdc9f2b563fcae1335e6fa6c.png",
+            "position": 0,
+            "desc": "",
+            "area": 0,
+            "area_old": 0,
+            "bg_color": "",
+            "bg_pic": "",
+            "use_old_area": false
+          },
+          "badge": {
+            "name": "v_person",
+            "position": 3,
+            "value": "",
+            "desc": "2025直播年度最强舰队奖UP主、2022百大UP主、虚拟偶像团体A-SOUL所属艺人"
+          },
+          "mobile_frame": {
+            "name": "千人舰队主播头像",
+            "value": "https://i0.hdslb.com/bfs/vc/40862cd8245b1742bdc9f2b563fcae1335e6fa6c.png",
+            "position": 0,
+            "desc": "",
+            "area": 0,
+            "area_old": 0,
+            "bg_color": "",
+            "bg_pic": "",
+            "use_old_area": false
+          },
+          "mobile_badge": null
+        },
+        "up_session": "",
+        "pk_status": 0,
+        "pk_id": 0,
+        "battle_id": 0,
+        "allow_change_area_time": 0,
+        "allow_upload_cover_time": 0,
+        "studio_info": {
+          "status": 0,
+          "master_list": []
+        }
+      }
+    },
+    "dedupeKey": "member_live:672328094:22637261",
+    "crawlDate": "2026-04-25"
+  },
+  {
+    "sourceId": "official-asoul",
+    "sourceType": "official_space",
+    "sourceUid": "703007996",
+    "label": "A-SOUL 官方账号",
+    "memberName": "A-SOUL_Official的个人空间-A-SOUL_Official个人主页-哔哩哔哩视频",
+    "url": "https://space.bilibili.com/703007996",
+    "cover": "//www.bilibili.com/favicon.ico",
+    "publishTime": "2026-04-24T23:19:30.227Z",
+    "title": "A-SOUL_Official的个人空间-A-SOUL_Official个人主页-哔哩哔哩视频",
+    "textContent": "A-SOUL 官方账号 页面抓取成功",
+    "metrics": {},
+    "rawPayload": {
+      "title": "A-SOUL_Official的个人空间-A-SOUL_Official个人主页-哔哩哔哩视频"
+    },
+    "dedupeKey": "official_space:703007996",
+    "crawlDate": "2026-04-25"
+  },
+  {
+    "sourceId": "eileen-live",
+    "sourceType": "member_live",
+    "sourceUid": "672342685",
+    "label": "乃琳直播间",
+    "memberName": "乃琳Queen",
+    "url": "https://live.bilibili.com/22625027",
+    "cover": "https://i0.hdslb.com/bfs/live/new_room_cover/597afece92bcaa95856e189d444d030b62083318.jpg",
+    "publishTime": "2026-04-24T23:19:30.223Z",
+    "title": "【3D】我真得控制你了",
+    "textContent": "乃琳Queen 当前直播状态为 2，分区 虚拟日常",
+    "metrics": {
+      "followerNum": 1080649,
+      "online": 0,
+      "liveStatus": 2,
+      "areaName": "虚拟日常",
+      "hotWords": [
+        "2333333",
+        "喂，妖妖零吗",
+        "红红火火恍恍惚惚",
+        "FFFFFFFFFF",
+        "Yooooooo",
+        "啪啪啪啪啪",
+        "666666666",
+        "老司机带带我",
+        "你为什么这么熟练啊",
+        "gg",
+        "prprpr",
+        "向大佬低头",
+        "请大家注意弹幕礼仪哦！",
+        "还有这种操作！",
+        "囍",
+        "打call",
+        "你气不气？",
+        "队友呢？"
+      ],
+      "roomId": "22625027"
+    },
+    "rawPayload": {
+      "master": {
+        "info": {
+          "uid": 672342685,
+          "uname": "乃琳Queen",
+          "face": "https://i1.hdslb.com/bfs/face/83d32ed15b3534267d2c5b1cf1a07a9c1e389fb0.jpg",
+          "official_verify": {
+            "type": 0,
+            "desc": "bilibili个人认证:虚拟偶像团体A-SOUL 所属艺人"
+          },
+          "gender": 0
+        },
+        "exp": {
+          "master_level": {
+            "level": 40,
+            "color": 16746162,
+            "current": [
+              0,
+              147013810
+            ],
+            "next": [
+              0,
+              147013810
+            ]
+          }
+        },
+        "follower_num": 1080649,
+        "room_id": 22625027,
+        "medal_name": "奶淇琳",
+        "glory_count": 8,
+        "pendant": "https://i0.hdslb.com/bfs/vc/071eb10548fe9bc482ff69331983d94192ce9507.png",
+        "link_group_num": 0,
+        "room_news": {
+          "content": "",
+          "ctime": "",
+          "ctime_text": ""
+        }
+      },
+      "room": {
+        "uid": 672342685,
+        "room_id": 22625027,
+        "short_id": 0,
+        "attention": 1080649,
+        "online": 0,
+        "is_portrait": false,
+        "description": "",
+        "live_status": 2,
+        "area_id": 371,
+        "parent_area_id": 9,
+        "parent_area_name": "虚拟主播",
+        "old_area_id": 6,
+        "background": "https://i0.hdslb.com/bfs/live/b1108bc618be9ecfe5551f267d25574250a25654.jpg",
+        "title": "【3D】我真得控制你了",
+        "user_cover": "https://i0.hdslb.com/bfs/live/new_room_cover/597afece92bcaa95856e189d444d030b62083318.jpg",
+        "keyframe": "",
+        "is_strict_room": false,
+        "live_time": "0000-00-00 00:00:00",
+        "tags": "虚拟偶像,二次元",
+        "is_anchor": 0,
+        "room_silent_type": "",
+        "room_silent_level": 0,
+        "room_silent_second": 0,
+        "area_name": "虚拟日常",
+        "pendants": "",
+        "area_pendants": "",
+        "hot_words": [
+          "2333333",
+          "喂，妖妖零吗",
+          "红红火火恍恍惚惚",
+          "FFFFFFFFFF",
+          "Yooooooo",
+          "啪啪啪啪啪",
+          "666666666",
+          "老司机带带我",
+          "你为什么这么熟练啊",
+          "gg",
+          "prprpr",
+          "向大佬低头",
+          "请大家注意弹幕礼仪哦！",
+          "还有这种操作！",
+          "囍",
+          "打call",
+          "你气不气？",
+          "队友呢？"
+        ],
+        "hot_words_status": 0,
+        "verify": "",
+        "new_pendants": {
+          "frame": {
+            "name": "百人舰队主播头像",
+            "value": "https://i0.hdslb.com/bfs/vc/071eb10548fe9bc482ff69331983d94192ce9507.png",
+            "position": 0,
+            "desc": "",
+            "area": 0,
+            "area_old": 0,
+            "bg_color": "",
+            "bg_pic": "",
+            "use_old_area": false
+          },
+          "badge": {
+            "name": "v_person",
+            "position": 3,
+            "value": "",
+            "desc": "虚拟偶像团体A-SOUL 所属艺人"
+          },
+          "mobile_frame": {
+            "name": "百人舰队主播头像",
+            "value": "https://i0.hdslb.com/bfs/vc/071eb10548fe9bc482ff69331983d94192ce9507.png",
+            "position": 0,
+            "desc": "",
+            "area": 0,
+            "area_old": 0,
+            "bg_color": "",
+            "bg_pic": "",
+            "use_old_area": false
+          },
+          "mobile_badge": null
+        },
+        "up_session": "",
+        "pk_status": 0,
+        "pk_id": 0,
+        "battle_id": 0,
+        "allow_change_area_time": 0,
+        "allow_upload_cover_time": 0,
+        "studio_info": {
+          "status": 0,
+          "master_list": []
+        }
+      }
+    },
+    "dedupeKey": "member_live:672342685:22625027",
+    "crawlDate": "2026-04-25"
+  }
+]

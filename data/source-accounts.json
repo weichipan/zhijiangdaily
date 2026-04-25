@@ -1,0 +1,169 @@
+[
+  {
+    "id": "company-zhijiang-official",
+    "label": "Zhijiang Entertainment Official",
+    "type": "company_official",
+    "group": "Zhijiang Entertainment",
+    "member": "",
+    "platform": "bilibili",
+    "url": "https://space.bilibili.com/3493085336046382",
+    "dynamicUrl": "https://space.bilibili.com/3493085336046382/dynamic",
+    "uid": "3493085336046382",
+    "roomId": "",
+    "enabled": true,
+    "purpose": [
+      "official_updates",
+      "topic_context"
+    ],
+    "notes": "Track daily official dynamics from the company account."
+  },
+  {
+    "id": "group-asoul-official",
+    "label": "A-SOUL Official",
+    "type": "group_official",
+    "group": "A-SOUL",
+    "member": "",
+    "platform": "bilibili",
+    "url": "https://space.bilibili.com/703007996",
+    "dynamicUrl": "https://space.bilibili.com/703007996/dynamic",
+    "uid": "703007996",
+    "roomId": "",
+    "enabled": true,
+    "purpose": [
+      "official_updates",
+      "topic_context"
+    ],
+    "notes": "Track daily official dynamics from the A-SOUL group account."
+  },
+  {
+    "id": "member-diana-official",
+    "label": "Diana Official",
+    "type": "member_official",
+    "group": "A-SOUL",
+    "member": "Diana",
+    "platform": "bilibili",
+    "url": "https://space.bilibili.com/672328094",
+    "dynamicUrl": "https://space.bilibili.com/672328094/dynamic",
+    "uid": "672328094",
+    "roomId": "22637261",
+    "enabled": true,
+    "purpose": [
+      "official_updates",
+      "schedule",
+      "live_metrics"
+    ],
+    "notes": "Official member account and live room source."
+  },
+  {
+    "id": "member-eileen-official",
+    "label": "Eileen Official",
+    "type": "member_official",
+    "group": "A-SOUL",
+    "member": "Eileen",
+    "platform": "bilibili",
+    "url": "https://space.bilibili.com/672342685",
+    "dynamicUrl": "https://space.bilibili.com/672342685/dynamic",
+    "uid": "672342685",
+    "roomId": "22625027",
+    "enabled": true,
+    "purpose": [
+      "official_updates",
+      "schedule",
+      "live_metrics"
+    ],
+    "notes": "Official member account and live room source."
+  },
+  {
+    "id": "member-bella-official",
+    "label": "Bella Official",
+    "type": "member_official",
+    "group": "A-SOUL",
+    "member": "Bella",
+    "platform": "bilibili",
+    "url": "https://space.bilibili.com/672353429",
+    "dynamicUrl": "https://space.bilibili.com/672353429/dynamic",
+    "uid": "672353429",
+    "roomId": "22632424",
+    "enabled": true,
+    "purpose": [
+      "official_updates",
+      "schedule",
+      "live_metrics"
+    ],
+    "notes": "Official member account and live room source."
+  },
+  {
+    "id": "member-xinyi-official",
+    "label": "Xinyi Official",
+    "type": "member_official",
+    "group": "Shining Stage Season 2",
+    "member": "Xinyi",
+    "platform": "bilibili",
+    "url": "https://space.bilibili.com/3537115310721181",
+    "dynamicUrl": "https://space.bilibili.com/3537115310721181/dynamic",
+    "uid": "3537115310721181",
+    "roomId": "",
+    "enabled": true,
+    "purpose": [
+      "official_updates",
+      "schedule",
+      "live_metrics"
+    ],
+    "notes": "Official member account. Live room information still needs confirmation."
+  },
+  {
+    "id": "member-sinuo-official",
+    "label": "Sinuo Official",
+    "type": "member_official",
+    "group": "Shining Stage Season 2",
+    "member": "Sinuo",
+    "platform": "bilibili",
+    "url": "https://space.bilibili.com/3537115310721781",
+    "dynamicUrl": "https://space.bilibili.com/3537115310721781/dynamic",
+    "uid": "3537115310721781",
+    "roomId": "",
+    "enabled": true,
+    "purpose": [
+      "official_updates",
+      "schedule",
+      "live_metrics"
+    ],
+    "notes": "Official member account. Live room information still needs confirmation."
+  },
+  {
+    "id": "clippers-watchlist",
+    "label": "Clipper Watchlist",
+    "type": "clipper_account",
+    "group": "cross-group",
+    "member": "",
+    "platform": "bilibili",
+    "url": "",
+    "dynamicUrl": "",
+    "uid": "",
+    "roomId": "",
+    "enabled": false,
+    "purpose": [
+      "clip_tracking",
+      "comment_sentiment"
+    ],
+    "notes": "Split this into multiple clipper records later if needed."
+  },
+  {
+    "id": "third-party-live-data-placeholder",
+    "label": "Third-party Live Metrics Site",
+    "type": "metrics_site",
+    "group": "cross-group",
+    "member": "",
+    "platform": "web",
+    "url": "",
+    "dynamicUrl": "",
+    "uid": "",
+    "roomId": "",
+    "enabled": false,
+    "purpose": [
+      "live_metrics",
+      "rankings"
+    ],
+    "notes": "Fill in the concrete site URL and field source later."
+  }
+]
