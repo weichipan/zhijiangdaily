@@ -3,7 +3,9 @@ import HeroBanner from "../components/home/hero-banner";
 import HomepageInfoGrid from "../components/home/homepage-info-grid";
 import HomeNavbar from "../components/home/home-navbar";
 import RecentReports from "../components/home/recent-reports";
+import { getTodayDateString } from "../lib/date";
 import { buildHomepageView } from "../lib/homepage-presenter";
+import { getDailyImageSet } from "../lib/image-library";
 import { getHomepageData } from "../lib/queries";
 
 export const dynamic = "force-dynamic";
@@ -27,8 +29,10 @@ function formatDateCard(date = new Date()) {
 
 export default async function HomePage() {
   const homepageData = await getHomepageData();
+  const todayDate = getTodayDateString();
   const view = buildHomepageView({
     ...homepageData,
+    imageSet: getDailyImageSet(todayDate),
     todayDateCard: formatDateCard(),
   });
 
@@ -44,7 +48,7 @@ export default async function HomePage() {
             <HeroBanner hero={view.hero} />
             <RecentReports reports={view.recentReports} />
             <HomepageInfoGrid headlines={view.headlines} scheduleRows={view.scheduleRows} summaryCards={view.summaryCards} />
-            <FeedbackStrip feedbackCards={view.feedbackCards} archive={view.archive} />
+            <FeedbackStrip feedbackCards={view.feedbackCards} archive={view.archive} decorativeImages={view.decorativeImages} />
           </div>
         </div>
       </div>

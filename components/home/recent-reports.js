@@ -15,13 +15,7 @@ function ReportCard({ report }) {
       <div className="relative overflow-hidden rounded-[22px] border border-white/80 bg-[linear-gradient(135deg,#FFF5F9,#F3F7FF)]">
         {report.imageSrc ? (
           <div className="relative h-52">
-            <Image
-              src={report.imageSrc}
-              alt={report.memberLabel}
-              fill
-              className="object-cover transition duration-300 group-hover:scale-[1.03]"
-              style={{ objectPosition: report.imagePosition }}
-            />
+            <Image src={report.imageSrc} alt={report.memberLabel} fill className="object-cover transition duration-300 group-hover:scale-[1.03]" />
           </div>
         ) : (
           <div className={`h-52 bg-gradient-to-br ${accent.glow}`} />
@@ -36,7 +30,7 @@ function ReportCard({ report }) {
             <p className="mt-1 text-sm font-semibold text-[#6D6684]">{report.reportTitle}</p>
           </div>
           <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[#E7DFF6] bg-[#FFF6FB] text-lg text-[#7D6DB3] transition group-hover:bg-[#B9A7F5] group-hover:text-white">
-            ↗
+            →
           </div>
         </div>
         <p className="text-sm text-[#8A84A0]">{report.date}</p>

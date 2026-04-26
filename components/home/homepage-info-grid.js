@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { getAccentClasses } from "../../lib/homepage-presenter";
 
 function SectionFrame({ eyebrow, title, children, className = "" }) {
@@ -19,9 +21,15 @@ export default function HomepageInfoGrid({ headlines, scheduleRows, summaryCards
             const accent = getAccentClasses(item.accent);
             return (
               <div key={item.id} className="flex gap-3 rounded-[24px] border border-[#EFE7FA] bg-[#FFFDFF] p-3">
-                <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl text-sm font-black ${accent.badge}`}>
-                  {item.memberName.slice(0, 1)}
-                </div>
+                {item.imageSrc ? (
+                  <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-2xl border border-white/80 shadow-sm">
+                    <Image src={item.imageSrc} alt={item.memberLabel} fill className="object-cover" />
+                  </div>
+                ) : (
+                  <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl text-sm font-black ${accent.badge}`}>
+                    {item.memberName.slice(0, 1)}
+                  </div>
+                )}
                 <div className="min-w-0">
                   <div className="flex items-center gap-2">
                     <h4 className="font-bold text-[#282438]">{item.memberLabel}</h4>
@@ -36,7 +44,9 @@ export default function HomepageInfoGrid({ headlines, scheduleRows, summaryCards
 
         <div className="mt-4 rounded-[24px] border border-dashed border-[#D9D0F6] bg-[linear-gradient(135deg,#FFF8FB,#F6F8FF)] p-4">
           <p className="text-xs font-bold uppercase tracking-[0.24em] text-[#8E84AA]">Little Tip</p>
-          <p className="mt-2 text-sm leading-7 text-[#5F5976]">今天的小贴士：先看成员动态和直播预告，再整理成时间线，会比直接堆数据更像一份好读的日报。</p>
+          <p className="mt-2 text-sm leading-7 text-[#5F5976]">
+            今天的小贴士：先看成员动态和直播预告，再整理成时间线，会比直接堆数据更像一份好读的日报。
+          </p>
         </div>
       </SectionFrame>
 
@@ -72,7 +82,9 @@ export default function HomepageInfoGrid({ headlines, scheduleRows, summaryCards
                     <p className="text-sm font-semibold text-[#625D79]">{card.label}</p>
                     <p className="mt-2 text-4xl font-black text-[#282438]">{card.value}</p>
                   </div>
-                  <div className="flex h-11 w-11 items-center justify-center rounded-full border border-white/80 bg-white/70 text-lg text-[#7D6DB3]">{card.icon}</div>
+                  <div className="flex h-11 w-11 items-center justify-center rounded-full border border-white/80 bg-white/70 text-lg text-[#7D6DB3]">
+                    {card.icon}
+                  </div>
                 </div>
                 <p className="mt-3 text-sm leading-6 text-[#6F6888]">{card.note}</p>
               </div>
