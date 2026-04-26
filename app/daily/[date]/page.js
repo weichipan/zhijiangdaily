@@ -1,9 +1,43 @@
 import { notFound } from "next/navigation";
 
 import { formatIssueDate } from "../../../lib/date";
+import { getDailyImageSet } from "../../../lib/image-library";
 import { getIssueByDate } from "../../../lib/repository";
 
 export const dynamic = "force-dynamic";
+
+function buildLayeredBackground(imageSrc) {
+  if (!imageSrc) {
+    return undefined;
+  }
+
+  return {
+    backgroundImage: [
+      "linear-gradient(90deg, rgba(25, 17, 23, 0.84), rgba(25, 17, 23, 0.34) 42%, rgba(25, 17, 23, 0.8))",
+      "linear-gradient(180deg, rgba(18, 13, 18, 0.22), rgba(18, 13, 18, 0.64))",
+      `url("${imageSrc}")`,
+    ].join(", "),
+    backgroundPosition: "center, center, center 22%",
+    backgroundSize: "auto, auto, cover",
+    backgroundRepeat: "repeat, repeat, no-repeat",
+  };
+}
+
+function buildFeedbackBackground(imageSrc) {
+  if (!imageSrc) {
+    return undefined;
+  }
+
+  return {
+    backgroundImage: [
+      "linear-gradient(180deg, rgba(27, 16, 23, 0.22), rgba(27, 16, 23, 0.72))",
+      `url("${imageSrc}")`,
+    ].join(", "),
+    backgroundPosition: "center, center 18%",
+    backgroundSize: "auto, cover",
+    backgroundRepeat: "repeat, no-repeat",
+  };
+}
 
 export default async function DailyIssuePage({ params }) {
   const { date } = await params;
@@ -12,6 +46,10 @@ export default async function DailyIssuePage({ params }) {
   if (!issue) {
     notFound();
   }
+
+  const imageSet = getDailyImageSet(issue.date);
+  const heroImage = imageSet.groups.hero ?? imageSet.groups.asoul ?? imageSet.groups.xiaoxinsi ?? null;
+  const feedbackImage = imageSet.groups.feedback ?? imageSet.groups.xiaoxinsi ?? imageSet.groups.asoul ?? null;
 
   return (
     <main className="site-shell">
@@ -36,7 +74,7 @@ export default async function DailyIssuePage({ params }) {
       </nav>
 
       <section className="hero">
-        <div className="hero-backdrop" />
+        <div className="hero-backdrop" style={buildLayeredBackground(heroImage)} />
         <div className="hero-content">
           <div className="hero-topline">
             <span className="brand-pill">枝江日报</span>
@@ -55,6 +93,8 @@ export default async function DailyIssuePage({ params }) {
                 <span className="tag">嘉然</span>
                 <span className="tag">乃琳</span>
                 <span className="tag">贝拉</span>
+                <span className="tag">心宜</span>
+                <span className="tag">思诺</span>
               </div>
             </aside>
           </div>
@@ -126,7 +166,7 @@ export default async function DailyIssuePage({ params }) {
         </ul>
       </section>
 
-      <section id="feedback" className="panel feedback-card" style={{ marginTop: 18 }}>
+      <section id="feedback" className="panel feedback-card" style={{ marginTop: 18, ...buildFeedbackBackground(feedbackImage) }}>
         <div className="panel-head">
           <p className="panel-index">04</p>
           <div>
