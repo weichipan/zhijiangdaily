@@ -1,137 +1,53 @@
-import Link from "next/link";
-
-import { formatIssueDate } from "../lib/date";
+import FeedbackStrip from "../components/home/feedback-strip";
+import HeroBanner from "../components/home/hero-banner";
+import HomepageInfoGrid from "../components/home/homepage-info-grid";
+import HomeNavbar from "../components/home/home-navbar";
+import RecentReports from "../components/home/recent-reports";
+import { buildHomepageView } from "../lib/homepage-presenter";
 import { getHomepageData } from "../lib/queries";
 
 export const dynamic = "force-dynamic";
 
+function formatDateCard(date = new Date()) {
+  const weekday = new Intl.DateTimeFormat("zh-CN", {
+    timeZone: "Asia/Shanghai",
+    weekday: "long",
+  }).format(date);
+
+  const parts = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Shanghai",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).formatToParts(date);
+
+  const values = Object.fromEntries(parts.filter((part) => part.type !== "literal").map((part) => [part.type, part.value]));
+  return `${values.year}/${values.month}/${values.day} ${weekday}`;
+}
+
 export default async function HomePage() {
-  const { latestIssue, history, todayLabel } = await getHomepageData();
+  const homepageData = await getHomepageData();
+  const view = buildHomepageView({
+    ...homepageData,
+    todayDateCard: formatDateCard(),
+  });
 
   return (
-    <main className="site-shell">
-      <section className="hero">
-        <div className="hero-backdrop" />
-        <div className="hero-content">
-          <div className="hero-topline">
-            <span className="brand-pill">ZHIJIANG DAILY</span>
-            <span className="hero-edition">A-SOUL 三人版日报站</span>
-          </div>
-          <div className="hero-grid">
-            <div className="headline-stack">
-              <p className="eyebrow">Bilibili A-SOUL 每日直播编排观察</p>
-              <h1>枝江日报</h1>
-              <p className="hero-copy">
-                面向手机、平板和桌面的 A-SOUL 日报网站。系统会按日抓取直播原料，生成待审核草稿，再由后台人工发布成正式日报。
-              </p>
-            </div>
-            <aside className="hero-card">
-              <p>今日刊号</p>
-              <p className="date">{todayLabel}</p>
-              <div className="tag-list">
-                <span className="tag">日程</span>
-                <span className="tag">总结</span>
-                <span className="tag">数据</span>
-                <span className="tag">反馈</span>
-              </div>
-            </aside>
-          </div>
+    <main className="min-h-screen bg-[linear-gradient(180deg,#FFF8F5_0%,#FFF7FB_40%,#F4F0FF_72%,#EFF7FF_100%)] px-3 py-4 text-[#282438] md:px-5 md:py-6">
+      <div className="mx-auto flex w-full max-w-[1280px] flex-col gap-5">
+        <HomeNavbar dateCard={view.nav.dateCard} />
 
-          <div className="hero-stats">
-            {[
-              ["嘉然 Diana", "综艺节奏"],
-              ["乃琳 Eileen", "夜谈氛围"],
-              ["贝拉 Bella", "舞台张力"],
-            ].map(([label, title]) => (
-              <article className="stat-card" key={label}>
-                <div className="stat-inner">
-                  <p>{label}</p>
-                  <strong>{title}</strong>
-                </div>
-              </article>
-            ))}
+        <div className="relative overflow-hidden rounded-[42px] border border-white/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.58),rgba(255,255,255,0.78))] p-3 shadow-[0_35px_80px_rgba(94,77,133,0.14)] md:p-5">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(248,182,200,0.18),transparent_22%),radial-gradient(circle_at_bottom_right,rgba(185,167,245,0.16),transparent_24%),linear-gradient(rgba(255,255,255,0.25)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.25)_1px,transparent_1px)] bg-[size:auto,auto,28px_28px,28px_28px]" />
+
+          <div className="relative flex flex-col gap-5">
+            <HeroBanner hero={view.hero} />
+            <RecentReports reports={view.recentReports} />
+            <HomepageInfoGrid headlines={view.headlines} scheduleRows={view.scheduleRows} summaryCards={view.summaryCards} />
+            <FeedbackStrip feedbackCards={view.feedbackCards} archive={view.archive} />
           </div>
         </div>
-      </section>
-
-      <nav className="site-nav">
-        <div className="nav-links">
-          <a className="nav-link" href="#issue">
-            最新日报
-          </a>
-          <a className="nav-link" href="#history">
-            往期归档
-          </a>
-          <Link className="nav-link" href="/admin">
-            后台审核
-          </Link>
-        </div>
-        {latestIssue ? (
-          <Link className="button" href={`/daily/${latestIssue.date}`}>
-            打开 {latestIssue.date}
-          </Link>
-        ) : (
-          <Link className="button" href="/admin">
-            进入后台生成首刊
-          </Link>
-        )}
-      </nav>
-
-      {latestIssue ? (
-        <section id="issue" className="daily-grid">
-          <article className="panel">
-            <div className="panel-head">
-              <p className="panel-index">导</p>
-              <div>
-                <h2>{latestIssue.headline}</h2>
-                <p>{latestIssue.summary}</p>
-              </div>
-            </div>
-            <p className="section-note">
-              当前展示的是 {formatIssueDate(latestIssue.date)} 的
-              {latestIssue.status === "published" ? "已发布日报" : "后台草稿"}。
-            </p>
-          </article>
-
-          <div className="cards-3">
-            {latestIssue.metrics.map((item) => (
-              <article className="sub-card" key={item.id}>
-                <h3>{item.label}</h3>
-                <p className="metric-value serif">{item.value}</p>
-                <p className="metric-note">{item.note}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-      ) : (
-        <section className="panel empty-state">
-          <div className="art" />
-          <div>
-            <h2>当天暂无已发布日报</h2>
-            <p className="muted">后台可以先执行抓取并生成草稿，审核后再发布到前台。</p>
-          </div>
-        </section>
-      )}
-
-      <section id="history" className="panel" style={{ marginTop: 18 }}>
-        <div className="panel-head">
-          <p className="panel-index">卷</p>
-          <div>
-            <h2>往期归档</h2>
-            <p>支持按日期回看已生成日报。</p>
-          </div>
-        </div>
-        <div className="history-list">
-          {history.map((issue) => (
-            <Link className="history-item" key={issue.id} href={`/daily/${issue.date}`}>
-              <strong>{issue.headline}</strong>
-              <span className="muted">
-                {issue.date} · {issue.status}
-              </span>
-            </Link>
-          ))}
-        </div>
-      </section>
+      </div>
     </main>
   );
 }
