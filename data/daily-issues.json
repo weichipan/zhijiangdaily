@@ -1,5 +1,162 @@
 [
   {
+    "id": "issue-2026-06-04",
+    "date": "2026-06-04",
+    "status": "draft",
+    "headline": "枝江日报 2026-06-04",
+    "summary": "系统已根据当日可抓到的日程与直播原料生成草稿，待后台审核后即可对外发布。",
+    "schedule": [
+      {
+        "id": "schedule:20260604-0900-gladys",
+        "time": "09:00",
+        "member": "思诺",
+        "title": "思诺直播",
+        "highlights": "来源：zhijiang"
+      },
+      {
+        "id": "schedule:20260604-1930-bella",
+        "time": "19:30",
+        "member": "贝拉",
+        "title": "贝拉直播｜歌舞复刻",
+        "highlights": "来源：asoul_official"
+      },
+      {
+        "id": "schedule:20260604-2100-diana",
+        "time": "21:00",
+        "member": "嘉然",
+        "title": "嘉然直播｜不舒服的时候...",
+        "highlights": "来源：asoul_official"
+      }
+    ],
+    "summaries": [
+      {
+        "id": "summary-main-2026-06-04",
+        "title": "今日直播总结",
+        "text": "今天共整理出 3 条当日日程，其中当前正在直播 0 场。站点周表已经接入草稿，后续再继续补齐动态和直播数据。"
+      },
+      {
+        "id": "summary-ops-2026-06-04",
+        "title": "内容观察",
+        "text": "当前日程板块已经改为优先使用每日抓取的直播表，后续可继续叠加官号动态、直播间状态和回放信息做交叉校验。"
+      },
+      {
+        "id": "summary-review-2026-06-04",
+        "title": "审核建议",
+        "text": "发布前建议核对成员姓名、直播主题、取消或改期状态，以及是否需要手动合并重复场次。"
+      }
+    ],
+    "metrics": [
+      {
+        "id": "metric-source-2026-06-04",
+        "label": "当日原料",
+        "value": "0",
+        "note": "已入库的抓取条目数"
+      },
+      {
+        "id": "metric-live-2026-06-04",
+        "label": "成员直播间",
+        "value": "0/3",
+        "note": "正在直播数 / 当日日程数"
+      },
+      {
+        "id": "metric-online-2026-06-04",
+        "label": "在线总量",
+        "value": "0",
+        "note": "直播接口返回的在线数汇总"
+      }
+    ],
+    "feedback": [
+      {
+        "id": "feedback-empty-2026-06-04",
+        "text": "今天还没有形成足够的自动反馈样本，后续可以在后台补充评论区和弹幕观察。"
+      }
+    ],
+    "publishedAt": null,
+    "updatedAt": "2026-06-03T21:04:31.920Z"
+  },
+  {
+    "id": "issue-2026-06-02",
+    "date": "2026-06-02",
+    "status": "draft",
+    "headline": "枝江日报 2026-06-02",
+    "summary": "系统已根据当日可抓到的日程与直播原料生成草稿，待后台审核后即可对外发布。",
+    "schedule": [
+      {
+        "id": "schedule:20260602-1930-fiona",
+        "time": "19:30",
+        "member": "心宜",
+        "title": "心宜直播｜不想长大!",
+        "highlights": "原场次有改期记录 / 来源：zhijiang"
+      },
+      {
+        "id": "schedule:20260602-2000-fiona-u1209266083260792835",
+        "time": "20:00",
+        "member": "心宜",
+        "title": "心宜直播｜不想长大!",
+        "highlights": "来源：zhijiang / 已有关联回放"
+      },
+      {
+        "id": "schedule:20260602-2030-eileen",
+        "time": "20:30",
+        "member": "乃琳",
+        "title": "乃琳突击｜【突击】晚间电台聊聊天~",
+        "highlights": "来源：reservation / 房间号 22625027 / 已有关联回放"
+      },
+      {
+        "id": "schedule:20260602-2100-gladys",
+        "time": "已取消",
+        "member": "思诺",
+        "title": "思诺直播｜思诺的100问9",
+        "highlights": "站点标记为取消 / 来源：zhijiang"
+      }
+    ],
+    "summaries": [
+      {
+        "id": "summary-main-2026-06-02",
+        "title": "今日直播总结",
+        "text": "今天共整理出 4 条当日日程，其中当前正在直播 0 场。站点周表已经接入草稿，后续再继续补齐动态和直播数据。"
+      },
+      {
+        "id": "summary-ops-2026-06-02",
+        "title": "内容观察",
+        "text": "当前日程板块已经改为优先使用每日抓取的直播表，后续可继续叠加官号动态、直播间状态和回放信息做交叉校验。"
+      },
+      {
+        "id": "summary-review-2026-06-02",
+        "title": "审核建议",
+        "text": "发布前建议核对成员姓名、直播主题、取消或改期状态，以及是否需要手动合并重复场次。"
+      }
+    ],
+    "metrics": [
+      {
+        "id": "metric-source-2026-06-02",
+        "label": "当日原料",
+        "value": "0",
+        "note": "已入库的抓取条目数"
+      },
+      {
+        "id": "metric-live-2026-06-02",
+        "label": "成员直播间",
+        "value": "0/4",
+        "note": "正在直播数 / 当日日程数"
+      },
+      {
+        "id": "metric-online-2026-06-02",
+        "label": "在线总量",
+        "value": "0",
+        "note": "直播接口返回的在线数汇总"
+      }
+    ],
+    "feedback": [
+      {
+        "id": "feedback-empty-2026-06-02",
+        "text": "今天还没有形成足够的自动反馈样本，后续可以在后台补充评论区和弹幕观察。"
+      }
+    ],
+    "publishedAt": null,
+    "updatedAt": "2026-06-03T20:35:01.872Z"
+  },
+  {
     "id": "issue-2026-04-25",
     "date": "2026-04-25",
     "status": "draft",
