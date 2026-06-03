@@ -20,10 +20,15 @@ export default function AdminDashboard({ initialData }) {
 
     try {
       const response = await fetch(url, options);
-      const data = await response.json();
+      const rawText = await response.text();
+      const data = rawText ? JSON.parse(rawText) : null;
 
       if (!response.ok) {
-        throw new Error(data.error || "请求失败");
+        throw new Error(data?.error || `请求失败（${response.status}）`);
+      }
+
+      if (!data) {
+        throw new Error("接口返回了空响应，请稍后重试。");
       }
 
       setMessage({ type: "success", text: data.message || "操作完成" });
@@ -79,13 +84,20 @@ export default function AdminDashboard({ initialData }) {
   }
 
   async function handleSaveIssue() {
-    const payload = {
-      ...issue,
-      schedule: JSON.parse(scheduleText),
-      summaries: JSON.parse(summaryText),
-      metrics: JSON.parse(metricsText),
-      feedback: JSON.parse(feedbackText),
-    };
+    let payload;
+
+    try {
+      payload = {
+        ...issue,
+        schedule: JSON.parse(scheduleText),
+        summaries: JSON.parse(summaryText),
+        metrics: JSON.parse(metricsText),
+        feedback: JSON.parse(feedbackText),
+      };
+    } catch (_error) {
+      setMessage({ type: "error", text: "你编辑的 JSON 不完整或格式不正确，请检查后再保存。" });
+      return;
+    }
 
     const data = await request(`/api/daily/${issue.date}`, {
       method: "PUT",
@@ -143,7 +155,7 @@ export default function AdminDashboard({ initialData }) {
               保存编辑
             </button>
             <button type="button" className="button" onClick={handlePublish} disabled={loading}>
-              发布当天日报
+              发布当日日报
             </button>
           </div>
         </div>
