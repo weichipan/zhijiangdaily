@@ -8,6 +8,9 @@
 - `data/`：本地开发模式下的 JSON 数据
 - `public/`：前端静态资源
 - `docs/`：长期上下文、决策和阶段总结
+- `docs/data-models.md`：抓取结果、草稿生成与存储共用的数据字段模型
+- `docs/filter-rules.md`：切片、搜索结果与热点来源共用的主题过滤规则
+- `docs/crawl-output-format.md`：抓取器应输出的统一结构与过滤结果字段
 
 ## 路由层
 
@@ -22,6 +25,7 @@
 - `app/api/source-accounts/route.js`：数据源配置读写
 - `app/api/bilibili-cookie/route.js`：B 站 Cookie 保存
 - `app/api/crawl/run-daily/route.js`：抓取并生成当日草稿
+- `app/api/crawl/run-clips/route.js`：运行切片候选抓取骨架并输出过滤结果
 - `app/api/draft/generate/route.js`：按原料重生成草稿
 - `app/api/daily/[date]/route.js`：日报读取与保存
 - `app/api/daily/[date]/publish/route.js`：发布日报
@@ -44,9 +48,14 @@
 
 1. 后台触发抓取
 2. 抓取结果进入 `rawItems`
-3. 草稿生成器把原料整理为日报结构
-4. 审核后的日报写入 `issues`
-5. 前台读取最新一期或指定日期日报进行展示
+3. 切片候选抓取骨架把视频候选整理到 `clipCandidates`
+4. 草稿生成器把原料整理为日报结构
+5. 审核后的日报写入 `issues`
+6. 前台读取最新一期或指定日期日报进行展示
+
+字段模型以 [docs/data-models.md](/E:/zhijiang/docs/data-models.md) 为准，抓取输出、草稿生成输入和后台编辑结构应尽量围绕这份定义收敛。
+主题相关性判断以 [docs/filter-rules.md](/E:/zhijiang/docs/filter-rules.md) 为准，切片过滤、候选排序和热点来源筛选应共用这份规则。
+抓取器输出结构以 [docs/crawl-output-format.md](/E:/zhijiang/docs/crawl-output-format.md) 为准，后续实现时优先围绕这份定义收敛。
 
 ## 适配 Vercel 的注意点
 
@@ -77,3 +86,32 @@
   - 同一天内页面展示保持一致
   - 到新的一天后会自动换一套素材
 - 如果某个成员目录暂时没有图片，页面退回到原有渐变占位
+
+## 2026-06-04 补充：日程抓取链路
+
+- 新增接口：`app/api/crawl/run-schedule/route.js`
+- 新增抓取器：`lib/schedule-crawler.js`
+- 新增存储：`scheduleItems` -> `data/schedule-items.json`
+
+当前第一版日程抓取约定如下：
+
+- 从 `https://asoul.love/` 首页内嵌的 `FilterableCalendar.initialEvents` 直接提取周表事件
+- 不依赖前端交互，不额外模拟翻页，先以稳定拿到结构化周表为目标
+- 抓取结果会映射到统一的 `scheduleItems` 字段模型
+- 目标日期过滤在抓取器内完成，便于后续直接按日报日期消费
+
+当前 host 对照关系：
+
+- `diana` -> `嘉然`
+- `eileen` -> `乃琳`
+- `bella` -> `贝拉`
+- `fiona` -> `心宜`
+- `gladys` -> `思诺`
+
+当前状态映射规则：
+
+- `published` -> `scheduled`
+- `rescheduled` -> `scheduled`
+- `cancelled` -> `cancelled`
+
+站点的原始状态、回放、改期来源等信息，暂时保留在 `rawPayload` 和 `notes` 中，后续再决定如何并入日报草稿生成。

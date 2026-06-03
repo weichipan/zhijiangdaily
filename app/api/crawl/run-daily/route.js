@@ -3,11 +3,14 @@ import { NextResponse } from "next/server";
 import { fetchSource } from "../../../../lib/bilibili";
 import { getTodayDateString } from "../../../../lib/date";
 import { buildDailyDraft } from "../../../../lib/draft";
+import { runScheduleCrawler } from "../../../../lib/schedule-crawler";
 import {
   addLog,
   appendRawItems,
+  appendScheduleItems,
   getIssueByDate,
   getRawItems,
+  getScheduleItemsByDate,
   getSettings,
   getSources,
   upsertIssue,
@@ -19,7 +22,12 @@ export async function POST(request) {
 
   try {
     const [sources, settings] = await Promise.all([getSources(), getSettings()]);
-    const enabledSources = sources.filter((source) => source.enabled);
+    const enabledSources = sources.filter(
+      (source) => source.enabled && source.type !== "schedule_site",
+    );
+
+    const scheduleResult = await runScheduleCrawler({ date, sources });
+    await appendScheduleItems(scheduleResult.scheduleItems);
 
     const results = await Promise.allSettled(
       enabledSources.map((source) => fetchSource(source, settings.bilibiliCookie)),
@@ -40,8 +48,14 @@ export async function POST(request) {
 
     const allItems = await getRawItems();
     const dayItems = allItems.filter((item) => item.crawlDate === date);
+    const scheduleItems = await getScheduleItemsByDate(date);
     const existingIssue = await getIssueByDate(date);
-    const issue = buildDailyDraft({ date, rawItems: dayItems, existingIssue });
+    const issue = buildDailyDraft({
+      date,
+      rawItems: dayItems,
+      scheduleItems,
+      existingIssue,
+    });
     await upsertIssue(issue);
 
     await addLog({
@@ -49,13 +63,13 @@ export async function POST(request) {
       type: "crawl",
       status: failed.length ? "partial" : "success",
       createdAt: new Date().toISOString(),
-      message: `已抓取 ${successItems.length} 条原料${failed.length ? `，失败 ${failed.length} 条` : ""}`,
+      message: `已抓取 ${successItems.length} 条原料，日程命中 ${scheduleResult.stats.matchedDateCount} 条${failed.length ? `，失败 ${failed.length} 条` : ""}`,
     });
 
     return NextResponse.json({
       message: failed.length
-        ? `抓取完成，成功 ${successItems.length} 条，失败 ${failed.length} 条`
-        : `抓取完成，共入库 ${successItems.length} 条`,
+        ? `抓取完成，原料成功 ${successItems.length} 条，日程 ${scheduleResult.stats.matchedDateCount} 条，失败 ${failed.length} 条`
+        : `抓取完成，原料入库 ${successItems.length} 条，日程 ${scheduleResult.stats.matchedDateCount} 条`,
       issue,
       failed,
     });

@@ -131,22 +131,165 @@
     "notes": "Official member account. Live room information still needs confirmation."
   },
   {
-    "id": "clippers-watchlist",
-    "label": "Clipper Watchlist",
-    "type": "clipper_account",
+    "id": "schedule-site-asoul-love",
+    "label": "A-SOUL / 枝江日程站",
+    "type": "schedule_site",
     "group": "cross-group",
     "member": "",
-    "platform": "bilibili",
-    "url": "",
+    "platform": "web",
+    "url": "https://asoul.love/",
     "dynamicUrl": "",
     "uid": "",
     "roomId": "",
-    "enabled": false,
+    "enabled": true,
+    "purpose": [
+      "schedule"
+    ],
+    "notes": "用于观察枝江五位成员每周直播日程，后续抓取时应与官号动态和直播间信息交叉校验。"
+  },
+  {
+    "id": "clipper-chikawa-channel",
+    "label": "chikawa频主",
+    "type": "clipper_account",
+    "group": "A-SOUL / Zhijiang",
+    "member": "",
+    "platform": "bilibili",
+    "url": "https://space.bilibili.com/11409734/upload/video",
+    "dynamicUrl": "",
+    "uid": "11409734",
+    "roomId": "",
+    "enabled": true,
     "purpose": [
       "clip_tracking",
       "comment_sentiment"
     ],
-    "notes": "Split this into multiple clipper records later if needed."
+    "notes": "重点关注。当前已知覆盖最全的枝江 / A-SOUL 相关切片员。默认纳入高优先级候选池，后续仍建议保留视频级主题过滤。当前默认仅抓取播放量 >= 6000 的视频。"
+  },
+  {
+    "id": "clipper-nature-awakening-fruit-user",
+    "label": "自然醒醒果实能力者",
+    "type": "clipper_account",
+    "group": "A-SOUL / Zhijiang",
+    "member": "",
+    "platform": "bilibili",
+    "url": "https://space.bilibili.com/7324201/upload/video",
+    "dynamicUrl": "",
+    "uid": "7324201",
+    "roomId": "",
+    "enabled": true,
+    "purpose": [
+      "clip_tracking",
+      "comment_sentiment"
+    ],
+    "notes": "重点关注。与 chikawa频主同级重点来源，默认纳入高优先级候选池，后续仍建议保留视频级主题过滤。当前默认仅抓取播放量 >= 6000 的视频。"
+  },
+  {
+    "id": "clipper-mocujiushihuihai",
+    "label": "没错就是绘海",
+    "type": "clipper_account",
+    "group": "A-SOUL / Zhijiang",
+    "member": "",
+    "platform": "bilibili",
+    "url": "https://space.bilibili.com/28263476/upload/video",
+    "dynamicUrl": "",
+    "uid": "28263476",
+    "roomId": "",
+    "enabled": true,
+    "purpose": [
+      "clip_tracking",
+      "comment_sentiment"
+    ],
+    "notes": "纯枝江 / A-SOUL 相关切片员。默认纳入常规候选池，后续仍建议保留视频级主题过滤。当前默认仅抓取播放量 >= 6000 的视频。"
+  },
+  {
+    "id": "clipper-jingyu-aichifan",
+    "label": "鲸鱼艾池繁",
+    "type": "clipper_account",
+    "group": "A-SOUL / Zhijiang",
+    "member": "",
+    "platform": "bilibili",
+    "url": "https://space.bilibili.com/86002435/upload/video",
+    "dynamicUrl": "",
+    "uid": "86002435",
+    "roomId": "",
+    "enabled": true,
+    "purpose": [
+      "clip_tracking",
+      "comment_sentiment"
+    ],
+    "notes": "纯枝江 / A-SOUL 相关切片员。默认纳入常规候选池，后续仍建议保留视频级主题过滤。当前默认仅抓取播放量 >= 6000 的视频。"
+  },
+  {
+    "id": "clipper-qieli",
+    "label": "切离",
+    "type": "clipper_account",
+    "group": "game-related",
+    "member": "",
+    "platform": "bilibili",
+    "url": "https://space.bilibili.com/1845224/upload/video",
+    "dynamicUrl": "",
+    "uid": "1845224",
+    "roomId": "",
+    "enabled": true,
+    "purpose": [
+      "clip_tracking",
+      "comment_sentiment"
+    ],
+    "notes": "重点关注。游戏向切片员，仅在成员直播内容明确与鸣潮或战双相关时纳入候选池。后续应保留视频级主题过滤。当前默认仅抓取播放量 >= 6000 的视频。"
+  },
+  {
+    "id": "clipper-ankejiang",
+    "label": "再探再报中的安可酱",
+    "type": "clipper_account",
+    "group": "game-related",
+    "member": "",
+    "platform": "bilibili",
+    "url": "https://space.bilibili.com/1230306578/upload/video",
+    "dynamicUrl": "",
+    "uid": "1230306578",
+    "roomId": "",
+    "enabled": true,
+    "purpose": [
+      "clip_tracking",
+      "comment_sentiment"
+    ],
+    "notes": "重点关注。切片热度较高但更新次数较少，仅在成员直播内容明确与鸣潮或战双相关时纳入候选池。后续应保留视频级主题过滤。当前默认仅抓取播放量 >= 6000 的视频。"
+  },
+  {
+    "id": "clipper-erxixinaogongba",
+    "label": "Er汐汐脑公罢",
+    "type": "clipper_account",
+    "group": "game-related",
+    "member": "",
+    "platform": "bilibili",
+    "url": "https://space.bilibili.com/3493109165983848/upload/video",
+    "dynamicUrl": "",
+    "uid": "3493109165983848",
+    "roomId": "",
+    "enabled": true,
+    "purpose": [
+      "clip_tracking",
+      "comment_sentiment"
+    ],
+    "notes": "游戏向切片员，仅在成员直播内容明确与鸣潮或战双相关时纳入候选池。后续应保留视频级主题过滤。当前默认仅抓取播放量 >= 6000 的视频。"
+  },
+  {
+    "id": "clipper-qiqiujuedouwang",
+    "label": "七丘决斗王",
+    "type": "clipper_account",
+    "group": "game-related",
+    "member": "",
+    "platform": "bilibili",
+    "url": "https://space.bilibili.com/99493519/upload/video",
+    "dynamicUrl": "",
+    "uid": "99493519",
+    "roomId": "",
+    "enabled": true,
+    "purpose": [
+      "clip_tracking",
+      "comment_sentiment"
+    ],
+    "notes": "游戏向切片员，仅在成员直播内容明确与鸣潮或战双相关时纳入候选池。后续应保留视频级主题过滤。当前默认仅抓取播放量 >= 6000 的视频。"
   },
   {
     "id": "third-party-live-data-placeholder",

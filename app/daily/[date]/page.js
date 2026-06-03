@@ -50,6 +50,7 @@ export default async function DailyIssuePage({ params }) {
   const imageSet = getDailyImageSet(issue.date);
   const heroImage = imageSet.groups.hero ?? imageSet.groups.asoul ?? imageSet.groups.xiaoxinsi ?? null;
   const feedbackImage = imageSet.groups.feedback ?? imageSet.groups.xiaoxinsi ?? imageSet.groups.asoul ?? null;
+  const tags = [...new Set(issue.schedule.map((item) => item.member).filter(Boolean))].slice(0, 5);
 
   return (
     <main className="site-shell">
@@ -90,11 +91,15 @@ export default async function DailyIssuePage({ params }) {
               <p>发布日期</p>
               <p className="date">{issue.publishedAt ? issue.publishedAt.slice(0, 10) : "未发布"}</p>
               <div className="tag-list">
-                <span className="tag">嘉然</span>
-                <span className="tag">乃琳</span>
-                <span className="tag">贝拉</span>
-                <span className="tag">心宜</span>
-                <span className="tag">思诺</span>
+                {tags.length > 0 ? (
+                  tags.map((tag) => (
+                    <span className="tag" key={tag}>
+                      {tag}
+                    </span>
+                  ))
+                ) : (
+                  <span className="tag">待补充成员</span>
+                )}
               </div>
             </aside>
           </div>
@@ -105,24 +110,20 @@ export default async function DailyIssuePage({ params }) {
         <div className="panel-head">
           <p className="panel-index">01</p>
           <div>
-            <h2>今日直播日程表</h2>
-            <p>由直播间状态、预告与人工补录共同生成。</p>
+            <h2>今日直播日程</h2>
+            <p>优先使用每日抓取的直播表，再由后台做最终审核与修订。</p>
           </div>
         </div>
-        <div className="schedule-table">
-          <div className="schedule-head">
-            <span>时间</span>
-            <span>成员</span>
-            <span>直播主题</span>
-            <span>看点</span>
-          </div>
+        <div className="schedule-feature-grid">
           {issue.schedule.map((item) => (
-            <div className="schedule-row" key={item.id}>
-              <span>{item.time}</span>
-              <span>{item.member}</span>
-              <span>{item.title}</span>
-              <span>{item.highlights}</span>
-            </div>
+            <article className="schedule-feature-card" key={item.id}>
+              <div className="schedule-feature-top">
+                <span className="schedule-time-pill">{item.time}</span>
+                <span className="schedule-member-pill">{item.member}</span>
+              </div>
+              <h3 className="schedule-feature-title">{item.title}</h3>
+              <p className="schedule-feature-copy">{item.highlights}</p>
+            </article>
           ))}
         </div>
       </section>
@@ -150,7 +151,7 @@ export default async function DailyIssuePage({ params }) {
           <p className="panel-index">03</p>
           <div>
             <h2>直播数据分析</h2>
-            <p>展示当前草稿所依据的客观指标。</p>
+            <p>展示当前草稿所依赖的客观指标。</p>
           </div>
         </div>
         <ul className="metrics-list">
@@ -166,7 +167,11 @@ export default async function DailyIssuePage({ params }) {
         </ul>
       </section>
 
-      <section id="feedback" className="panel feedback-card" style={{ marginTop: 18, ...buildFeedbackBackground(feedbackImage) }}>
+      <section
+        id="feedback"
+        className="panel feedback-card"
+        style={{ marginTop: 18, ...buildFeedbackBackground(feedbackImage) }}
+      >
         <div className="panel-head">
           <p className="panel-index">04</p>
           <div>
