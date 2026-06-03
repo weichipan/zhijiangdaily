@@ -6,6 +6,7 @@ import { isAdminAuthenticated } from "../../lib/auth";
 import { getTodayDateString } from "../../lib/date";
 import { getIssueByDate, getLogs, getSettings, getSources } from "../../lib/repository";
 import { defaultIssue } from "../../lib/seed";
+import { getStorageInfo } from "../../lib/storage";
 
 export const dynamic = "force-dynamic";
 
@@ -16,6 +17,7 @@ export default async function AdminPage() {
   }
 
   const date = getTodayDateString();
+  const storage = getStorageInfo();
   const [issue, sources, settings, logs] = await Promise.all([
     getIssueByDate(date),
     getSources(),
@@ -57,6 +59,7 @@ export default async function AdminPage() {
           sources,
           settings,
           logs: logs.slice(0, 12),
+          storage,
         }}
       />
     </main>

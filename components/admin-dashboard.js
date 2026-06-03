@@ -7,6 +7,7 @@ export default function AdminDashboard({ initialData }) {
   const [sources, setSources] = useState(JSON.stringify(initialData.sources, null, 2));
   const [cookieValue, setCookieValue] = useState(initialData.settings.bilibiliCookie || "");
   const [crawlDate, setCrawlDate] = useState(initialData.issue.date);
+  const storage = initialData.storage;
   const [message, setMessage] = useState(null);
   const [loading, setLoading] = useState(false);
   const [scheduleText, setScheduleText] = useState(JSON.stringify(initialData.issue.schedule, null, 2));
@@ -139,6 +140,19 @@ export default function AdminDashboard({ initialData }) {
             <span className="dashboard-chip">更新于：{issue.updatedAt}</span>
           </div>
         </div>
+
+        <div className="toolbar" style={{ marginTop: 12 }}>
+          <div className="toolbar-group">
+            <span className="dashboard-chip">当前存储：{storage.label}</span>
+            {storage.envSource ? <span className="dashboard-chip">环境变量：{storage.envSource}</span> : null}
+          </div>
+        </div>
+
+        {!storage.persistentInVercel ? (
+          <div className="message error" style={{ marginTop: 12 }}>
+            当前仍在使用本地 JSON 存储。在线上的 Vercel 环境里，这意味着“执行日抓取、保存编辑、发布日报、保存 Cookie”这类写入操作不能算真正可持久化，请先接入 KV / Redis。
+          </div>
+        ) : null}
 
         <div className="toolbar">
           <div className="toolbar-group">

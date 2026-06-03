@@ -43,6 +43,16 @@
    - 当存在 `KV_REST_API_URL` 和 `KV_REST_API_TOKEN` 时启用
    - 用 Vercel KV 保存来源配置、Cookie、原料、日报、日志
 
+3. `upstash-redis`
+   - 当存在 `UPSTASH_REDIS_REST_URL` 和 `UPSTASH_REDIS_REST_TOKEN` 时优先启用
+   - 这是当前更推荐的线上持久化方式
+   - 用 Upstash Redis REST 保存来源配置、Cookie、原料、日报、日志
+
+当前优先级为：
+- `UPSTASH_REDIS_REST_URL` + `UPSTASH_REDIS_REST_TOKEN`
+- `KV_REST_API_URL` + `KV_REST_API_TOKEN`
+- 都没有时回落到 `local-json`
+
 `lib/repository.js` 继续作为统一的数据访问层，上层页面和 API 不直接感知底层存储介质。
 
 ## 数据流

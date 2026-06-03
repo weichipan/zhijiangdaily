@@ -123,6 +123,10 @@
 
 - `KV_REST_API_URL`
 - `KV_REST_API_TOKEN`
+- 或者 `UPSTASH_REDIS_REST_URL`
+- 和 `UPSTASH_REDIS_REST_TOKEN`
+
+当前推荐优先使用 Upstash Redis 这一组环境变量。项目已经兼容旧版 `KV_REST_API_URL` / `KV_REST_API_TOKEN`，但新接入时优先选 Upstash 即可。
 
 ## 发布前检查
 

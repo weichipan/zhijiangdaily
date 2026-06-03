@@ -36,17 +36,23 @@ pnpm dev
 - `ADMIN_PASSWORD`：后台登录密码
 - `KV_REST_API_URL`：Vercel KV REST 地址
 - `KV_REST_API_TOKEN`：Vercel KV REST 令牌
+- `UPSTASH_REDIS_REST_URL`：Upstash Redis REST 地址
+- `UPSTASH_REDIS_REST_TOKEN`：Upstash Redis REST 写入令牌
 - `CRON_SECRET`：Vercel Cron 调用自动抓取接口时使用的鉴权密钥
 
-未配置 KV 时，项目会自动回落到本地 JSON 存储。
+推荐优先使用 `UPSTASH_REDIS_REST_URL` + `UPSTASH_REDIS_REST_TOKEN`。如果仍在使用旧版 `KV_REST_API_URL` + `KV_REST_API_TOKEN`，项目也会继续兼容。
+
+未配置远端存储时，项目会自动回落到本地 JSON 存储。本地开发没问题，但线上 Vercel 环境中的后台写入、Cron 抓取和发布流程都不能算真正可持久化。
 
 ## 部署到 Vercel
 
 1. 把项目推到 Git 仓库并导入 Vercel
 2. 在 Vercel 项目里创建一个 KV 数据库
-3. 把 `KV_REST_API_URL` 和 `KV_REST_API_TOKEN` 配到项目环境变量
-4. 配置 `ADMIN_PASSWORD`
-5. 触发一次部署
+3. 如果使用旧版 Vercel KV，配置 `KV_REST_API_URL` 和 `KV_REST_API_TOKEN`
+4. 如果使用当前推荐的 Upstash Redis，配置 `UPSTASH_REDIS_REST_URL` 和 `UPSTASH_REDIS_REST_TOKEN`
+5. 配置 `ADMIN_PASSWORD`
+6. 配置 `CRON_SECRET`
+7. 触发一次部署
 
 ## 自动抓取
 
