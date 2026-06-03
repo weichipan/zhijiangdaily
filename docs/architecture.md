@@ -26,6 +26,7 @@
 - `app/api/bilibili-cookie/route.js`：B 站 Cookie 保存
 - `app/api/crawl/run-daily/route.js`：抓取并生成当日草稿
 - `app/api/crawl/run-clips/route.js`：运行切片候选抓取骨架并输出过滤结果
+- `app/api/crawl/run-schedule/route.js`：支持手动 `POST` 抓取日程，也支持 Vercel Cron 通过 `GET` 定时抓取
 - `app/api/draft/generate/route.js`：按原料重生成草稿
 - `app/api/daily/[date]/route.js`：日报读取与保存
 - `app/api/daily/[date]/publish/route.js`：发布日报
@@ -99,6 +100,14 @@
 - 不依赖前端交互，不额外模拟翻页，先以稳定拿到结构化周表为目标
 - 抓取结果会映射到统一的 `scheduleItems` 字段模型
 - 目标日期过滤在抓取器内完成，便于后续直接按日报日期消费
+
+当前自动化约定如下：
+
+- 使用 `vercel.json` 中的 `crons` 配置定时任务
+- 当前配置为 `0 0 * * *`
+- 这对应 **Asia/Shanghai 每天 08:00**
+- Cron 触发入口为 `GET /api/crawl/run-schedule`
+- 该入口要求 `Authorization: Bearer ${CRON_SECRET}`，避免被外部随意调用
 
 当前 host 对照关系：
 

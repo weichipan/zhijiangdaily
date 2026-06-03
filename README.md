@@ -36,6 +36,7 @@ pnpm dev
 - `ADMIN_PASSWORD`：后台登录密码
 - `KV_REST_API_URL`：Vercel KV REST 地址
 - `KV_REST_API_TOKEN`：Vercel KV REST 令牌
+- `CRON_SECRET`：Vercel Cron 调用自动抓取接口时使用的鉴权密钥
 
 未配置 KV 时，项目会自动回落到本地 JSON 存储。
 
@@ -46,6 +47,14 @@ pnpm dev
 3. 把 `KV_REST_API_URL` 和 `KV_REST_API_TOKEN` 配到项目环境变量
 4. 配置 `ADMIN_PASSWORD`
 5. 触发一次部署
+
+## 自动抓取
+
+- 项目已配置 `vercel.json`
+- 当前会在 **每天北京时间 08:00** 自动调用一次日程抓取接口
+- Vercel Cron 使用 UTC，因此配置写成的是 `0 0 * * *`
+- 自动任务调用的是 `GET /api/crawl/run-schedule`
+- 线上需要额外配置 `CRON_SECRET`，Vercel Cron 会用它给请求附带 `Authorization: Bearer <CRON_SECRET>`
 
 部署后：
 
