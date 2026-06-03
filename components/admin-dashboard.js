@@ -148,6 +148,15 @@ export default function AdminDashboard({ initialData }) {
           </div>
         </div>
 
+        <div className="toolbar" style={{ marginTop: 8 }}>
+          <div className="toolbar-group">
+            <span className="dashboard-chip">KV_REST_API_URL：{storage.diagnostics?.KV_REST_API_URL ? "已检测" : "未检测"}</span>
+            <span className="dashboard-chip">KV_REST_API_TOKEN：{storage.diagnostics?.KV_REST_API_TOKEN ? "已检测" : "未检测"}</span>
+            <span className="dashboard-chip">UPSTASH_REDIS_REST_URL：{storage.diagnostics?.UPSTASH_REDIS_REST_URL ? "已检测" : "未检测"}</span>
+            <span className="dashboard-chip">UPSTASH_REDIS_REST_TOKEN：{storage.diagnostics?.UPSTASH_REDIS_REST_TOKEN ? "已检测" : "未检测"}</span>
+          </div>
+        </div>
+
         {!storage.persistentInVercel ? (
           <div className="message error" style={{ marginTop: 12 }}>
             当前仍在使用本地 JSON 存储。在线上的 Vercel 环境里，这意味着“执行日抓取、保存编辑、发布日报、保存 Cookie”这类写入操作不能算真正可持久化，请先接入 KV / Redis。
